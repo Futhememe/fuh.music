@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack").container
   .ModuleFederationPlugin;
 const path = require("path");
+const dependencies = require('./package.json').dependencies;
 
 module.exports = {
   entry: "./src/index",
@@ -79,13 +80,23 @@ module.exports = {
     ],
   },
   plugins: [
-    // new ModuleFederationPlugin({
-    //   name: "app1",
-    //   remotes: {
-    //     app2: "app2@http://localhost:3002/remoteEntry.js",
-    //   },
-    //   shared: ["react", "react-dom"],
-    // }),
+    new ModuleFederationPlugin({
+      name: 'auth',
+      filename: 'remoteEntry.js',
+      exposes: {},
+      remotes: {},
+      shared: {
+        ...dependencies,
+        'react-dom': {
+          requiredVersion: dependencies['react-dom'],
+          singleton: true,
+        },
+        react: {
+          requiredVersion: dependencies['react'],
+          singleton: true,
+        },
+      },
+    }),
     new HtmlWebpackPlugin({
       template: "./public/index.html",
     }),
