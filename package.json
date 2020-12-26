@@ -6,16 +6,17 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"wsrun --parallel run start\""
+    "start": "lerna run --scope @typescript/* --parallel start",
+    "build": "lerna run --scope @typescript/* build",
+    "serve": "lerna run --scope @typescript/* --parallel serve",
+    "clean": "lerna run --scope @typescript/* --parallel clean"
   },
-  "workspaces": [
+  "workspaces":[
     "packages/*"
   ],
   "keywords": [],
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^5.3.0",
-    "webpack-dev-server": "^3.11.0",
-    "wsrun": "^5.2.4"
+    "lerna": "^3.22.1"
   }
 }
