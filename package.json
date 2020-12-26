@@ -1,0 +1,21 @@
+{
+  "name": "fuh.music",
+  "version": "1.0.0",
+  "description": "Music site by Fuh.psd",
+  "author": "kyoro_souza@hotmail.com",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"wsrun --parallel run start\""
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "keywords": [],
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "webpack-dev-server": "^3.11.0",
+    "wsrun": "^5.2.4"
+  }
+}
