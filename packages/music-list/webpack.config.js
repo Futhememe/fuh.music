@@ -81,7 +81,7 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'auth',
+      name: 'music-list',
       filename: 'remoteEntry.js',
       exposes: {},
       remotes: {},
