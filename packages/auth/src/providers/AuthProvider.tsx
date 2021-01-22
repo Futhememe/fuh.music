@@ -7,7 +7,7 @@ export const AuthContext = createContext<any>({
   authenticate: () => {},
 });
 
-const AuthProvider = ({ children }) => {
+const AuthProvider: React.FC = ({ children }) => {
   const context = useAuth();
 
   return (

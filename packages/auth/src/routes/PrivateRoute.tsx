@@ -2,7 +2,9 @@ import React, { useContext } from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 
-const PrivateRoute = ({ children, component, ...rest }) => {
+import { RouteProps } from './_types';
+
+const PrivateRoute: React.FC<RouteProps> = ({ children, component, ...rest }) => {
   const { authenticated } = useContext(AuthContext);
 
   const render = () => {

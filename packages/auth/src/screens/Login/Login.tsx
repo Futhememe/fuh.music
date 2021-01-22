@@ -2,7 +2,9 @@ import React, { useContext, useEffect } from 'react';
 
 import { AuthContext } from '../../providers/AuthProvider';
 
-const Login = ({ redirectWhenSignIn, history }) => {
+
+
+const Login: React.FC = ({ redirectWhenSignIn, history }) => {
   const { authenticated } = useContext(AuthContext);
 
   useEffect(() => {
